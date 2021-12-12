@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coding Quiz</title>
+    <link rel="stylesheet" href="./assets/css/style.css">
+</head>
+
+<body>
+<div class="main" state="show">
+    <h1>Welcome to the Code Quiz!</h1>
+    <h3 class="time" style="text-align:right"></h3>
+    <h4>Your timer will start with 60 seconds remaining. The timer will start running
+        when the start button below is clicked. For every wrong answer, you
+        will lose an additional 10 seconds. Good luck! </h4>
+        <button id="start-button"> Start Quiz</button>
+    </div>
+
+<div class="questions" state="hidden">
+</div>
+
+</div>
+
+<div class="final-score" state="hidden">
+    <h3>You quiz is complete!</h3>
+    <h4>Your final score is:</h4>
+        <div id="your-score">0</div>
+</div>
+
+<div class="high-score" state="hidden">
+</div>
+
+    <script src="./assets/js/script.js"></script>
+</body>
+
+</html>
