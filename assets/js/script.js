@@ -40,14 +40,14 @@ var submit = document.querySelector("submit");
 submit.addEventListener("click", function(){
     var initials = document.querySelector("initials")
     //store score?
-    if (submit === " ") {
+    if (!initials) {
         initials.textContent = "Please type your initials"
     } else 
     //store the answer?
     lastPage();
 });
 
-var yourScore = document.querySelector("your-score");
+// var yourScore = document.querySelector("your-score");
 // yourScore.textContent = //whatever variable i define that calculates the score
 
 }
@@ -58,23 +58,27 @@ function startQuestions() {
     title.hidden = true;
     questionsContainer.hidden = false;
 
-    var questionTitle = document.querySelector("#question-title");
-    var activeIndex = questionArray[0];
-    questionTitle.textContent = activeIndex;
+    // var questionTitle = document.querySelector("#question-title");
+    // var activeIndex = questionArray[0];
+    // questionTitle.textContent = activeIndex;
 
 
-    var choice = document.createElement("type", "button");
-    choice.textContent = activeIndex;
+    // var choice = document.createElement("type", "button");
+    // choice.textContent = activeIndex;
+    // questionsContainer.appendChild("choice");
     
-    var choices = Object.entries(questionArray)
-    Object.entries(questionArray).forEach
+    // var choices = Object.entries(questionArray)
+    // Object.entries(questionArray).forEach
     
-    // for (var i = 0; i <questionArray.length; i++){
+    for (var i = 0; i <questionArray.length; i++){
+        var choice = document.createElement('type', 'button');
+        choice.textContent = questionArray.choices
+        questionsContainer.appendChild(choice);
         //need to add event listener?
         // choices.textContent = activeQuestion.choices[i];
         // activeIndex++
         // console.log(questionArray.choices);
-    // }
+    }
 }
 
 
