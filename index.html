@@ -10,28 +10,32 @@
 </head>
 
 <body>
-<div class="main" state="show">
-    <h1>Welcome to the Code Quiz!</h1>
-    <h3 class="time" style="text-align:right"></h3>
-    <h4>Your timer will start with 60 seconds remaining. The timer will start running
-        when the start button below is clicked. For every wrong answer, you
-        will lose an additional 10 seconds. Good luck! </h4>
+    <div id="title">
+        <h1>Welcome to the Code Quiz!</h1>
+        <h4>Your timer will start with 60 seconds remaining. The timer will start running
+            when the start button below is clicked. For every wrong answer, you
+            will lose an additional 10 seconds. Good luck! </h4>
         <button id="start-button"> Start Quiz</button>
     </div>
+    
+    <h3 id="time" style="text-align:right"></h3>
 
-<div class="questions" state="hidden">
-</div>
+    <div id="questions-container" hidden>
+        <h4 id="question-title"></h4>
+    </div>
 
-</div>
+  
+    <div id="final-score" hidden> 
+        <h3>Your quiz is complete!</h3>
+        <h4>Your final score is:</h4>
+        <div id="your-score"></div>
+    </div>
 
-<div class="final-score" state="hidden">
-    <h3>You quiz is complete!</h3>
-    <h4>Your final score is:</h4>
-        <div id="your-score">0</div>
-</div>
-
-<div class="high-score" state="hidden">
-</div>
+    <!-- <div id="high-score" hidden>
+        <h3>This is your high score:
+            <div id="best-score">0</div>
+        </h3>
+    </div> -->
 
     <script src="./assets/js/script.js"></script>
 </body>
