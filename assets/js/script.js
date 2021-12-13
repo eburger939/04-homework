@@ -27,9 +27,29 @@ var questionArray = [
 
 var secondsLeft = 2;
 
+function lastPage() {
+    var highScore = document.querySelector()
+}
+
+
 function quizOver(){
 questionsContainer.hidden= true;
 finalScore.hidden = false
+
+var submit = document.querySelector("submit");
+submit.addEventListener("click", function(){
+    var initials = document.querySelector("initials")
+    //store score?
+    if (submit === " ") {
+        initials.textContent = "Please type your initials"
+    } else 
+    //store the answer?
+    lastPage();
+});
+
+var yourScore = document.querySelector("your-score");
+// yourScore.textContent = //whatever variable i define that calculates the score
+
 }
 
 
@@ -39,19 +59,22 @@ function startQuestions() {
     questionsContainer.hidden = false;
 
     var questionTitle = document.querySelector("#question-title");
-    var activeIndex = questionArray[i];
-    questionTitle.textContent = activeIndex.question;
+    var activeIndex = questionArray[0];
+    questionTitle.textContent = activeIndex;
 
 
     var choice = document.createElement("type", "button");
-    choice.textContent = activeIndex.choices;
+    choice.textContent = activeIndex;
     
+    var choices = Object.entries(questionArray)
+    Object.entries(questionArray).forEach
     
-    for (var i = 0; questionArray.length; i++){
-        choices.textContent = activeQuestion.choices[i];
-        activeIndex++
-        console.log(questionArray.choices);
-    }
+    // for (var i = 0; i <questionArray.length; i++){
+        //need to add event listener?
+        // choices.textContent = activeQuestion.choices[i];
+        // activeIndex++
+        // console.log(questionArray.choices);
+    // }
 }
 
 
