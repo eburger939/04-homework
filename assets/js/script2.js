@@ -26,7 +26,7 @@ var questionArray = [
 function startQuestions() {
 var activeQuestion = questionArray[questionIndex];
 questionTitle.textContent = activeQuestion.question;
-questionsContainer.appendChild('questionTitle');
+// questionsContainer.appendChild('questionTitle');
 
     
     
@@ -43,7 +43,7 @@ questionsContainer.appendChild('questionTitle');
     // Object.entries(questionArray).forEach
     
     for (var i = 0; i <questionArray.length; i++){
-        var choice = document.createElement('type', 'button');
+        var choice = document.createElement('button');
         choice.textContent = questionArray.choices
         questionsContainer.appendChild(choice);
         //need to add event listener?

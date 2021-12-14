@@ -37,10 +37,10 @@ questionsContainer.hidden= true;
 finalScore.hidden = false
 
 var submit = document.querySelector("submit");
-submit.addEventListener("click", function(){
+submit.addEventListener("submit", function(){
     var initials = document.querySelector("initials")
     //store score?
-    if (!initials) {
+    if (!initials === "") {
         initials.textContent = "Please type your initials"
     } else 
     //store the answer?
