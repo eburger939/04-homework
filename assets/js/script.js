@@ -6,22 +6,32 @@ var title = document.querySelector("#title");
 // var bestScore = document.querySelector("#best-score");
 var questionsContainer = document.querySelector("#questions-container")
 var index = 0;
+var correct = 0;
 var choicesEl = document.querySelector("#choices");
 var critiqueEl = document.querySelector("#critique");
 var questionArray = [
     {
         question: "How many days are in December?",
-        choices: ["28", "29", "30", "31"],
+        a: "28"
+        b: "29"
+        c: "30"
+        d: "31"
         answer: "31",
     },
     {
         question: "How many reindeer does Santa have?",
-        choices: ["six", "eight", "nine", "twelve"],
+        a: "six"
+        b: "eight"
+        c: "nine"
+        d: "twelve"
         answer: "nine",
     },
     {
         question: "which of the following is not one of Santa's reindeer?",
-        choices: ["Dasher", "Dixen", "Comet", "Blitzen"],
+        a: "Dasher"
+        b: "Dixen"
+        c: "Comet"
+        d: "Blitzen"
         answer: "Dixen",
     },
 ]
@@ -34,8 +44,32 @@ function renderQuestions() {
     title.hidden = true;
     questionsContainer.hidden = false;
 
-    var activeQuestion = questionArray[index];
-    var questionTitle = document.querySelector("#question-title");
+    if (index >= questionArray.length) {
+        quizOver();
+    } return false;
+}
+    var activeQuestion = document.querySelector("#question-title");
+      activeQuestion.innerHTML = questionArray[index].question;
+      
+      var optionA = questionArray[index].a;
+      var optionB = questionArray[index].b;
+      var optionC = questionArray[index].c;
+      var optionD = questionArray[index].d;
+
+var a = document.querySelector("#A");
+var b= document.querySelector("#B");
+var c = document.querySelector("#C");
+var d = document.querySelector("#D");
+      a.innerHTML = optionA;
+      b.innerHTML = optionB;
+      c.innerHTML = optionC;
+      d.innerHTML = optionD;
+
+
+
+
+  
+ 
     questionTitle.innerHTML = activeQuestion.question;
 
     choicesEl.innerHTML = "";
@@ -45,7 +79,7 @@ for (var i = 0; i< questionArray.choices.length; i++){
        choiceBtn.setAttribute("class", "pick");
       
 }
-}
+
 
 function saveScore() {
     var highScore = document.querySelector("#high-score");
@@ -78,10 +112,7 @@ function quizOver(){
 function click(){
     if (this.value !== questionArray[index].answer){
         secondsLeft -= 10;
-        critiqueEl.innerHTML = "incorrect";
         timeEl.innerHTML = secondsLeft;
-} else {
-        critiqueEl.innerHTML = "correct";
     }
 
     if (secondsLeft < 0) {
