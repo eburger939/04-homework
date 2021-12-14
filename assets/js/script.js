@@ -6,6 +6,8 @@ var title = document.querySelector("#title");
 // var bestScore = document.querySelector("#best-score");
 var questionsContainer = document.querySelector("#questions-container")
 var index = 0;
+var choicesEl = document.querySelector("#choices");
+var critiqueEl = document.querySelector("#critique");
 var questionArray = [
     {
         question: "How many days are in December?",
@@ -28,44 +30,71 @@ var questionArray = [
 
 var secondsLeft = 2;
 
-
-function quizOver(){
-questionsContainer.hidden= true;
-finalScore.hidden = false
-
-var submit = document.querySelector("submit");
-submit.addEventListener("submit", function(){
-    var initials = document.querySelector("initials")
-    //store score?
-    if (!initials === "") {
-        initials.textContent = "Please type your initials"
-    } else 
-    //store the answer?
-    lastPage();
-});
-
-}
-
-
-
-function startQuestions() {
+function renderQuestions() {
     title.hidden = true;
     questionsContainer.hidden = false;
 
-for (var i = 0; i< questionArray.length; i++){
-        var questionTitle = document.querySelector("#question-title");
-        var question = questionArray[i];
-        questionTitle.innerHTML= question.question;
+    var activeQuestion = questionArray[index];
+    var questionTitle = document.querySelector("#question-title");
+    questionTitle.innerHTML = activeQuestion.question;
 
-        var ulEl = document.querySelector("#button");
-        var choices = questionArray[i];
-        ulEl.innerHTML = choices.choices;
-        
-        console.log(question);     
-        
-        checkAnswers()
+    choicesEl.innerHTML = "";
 
+for (var i = 0; i< questionArray.choices.length; i++){
+       var choiceBtn = document.createElement("button");
+       choiceBtn.setAttribute("class", "pick");
+      
 }
+}
+
+function saveScore() {
+    var highScore = document.querySelector("#high-score");
+    finalScore.hidden = true;
+    highScore.hidden = false;
+}
+
+
+function quizOver(){
+    questionsContainer.hidden= true;
+    finalScore.hidden = false;
+    
+    // var submit = document.querySelector("#submit");
+
+    submit.addEventListener("click", function(){
+        var initialsEl = document.querySelector("submit")
+        var initials = initialsEl.value();
+        if (!initials === "") {
+            initials.textContent = "Please type your initials"
+        } else {
+        //store the answer?
+        saveScore();
+        //how to combine the score and the initials???? - into a new array, stringify then parse
+    } });
+    
+    }
+
+    
+
+function click(){
+    if (this.value !== questionArray[index].answer){
+        secondsLeft -= 10;
+        critiqueEl.innerHTML = "incorrect";
+        timeEl.innerHTML = secondsLeft;
+} else {
+        critiqueEl.innerHTML = "correct";
+    }
+
+    if (secondsLeft < 0) {
+        secondsLeft = 0;
+        timeEl.innerHTML = secondsLeft;
+    }
+
+    index ++;
+    if (index === questionArray.length){
+        quizOver();
+    } else {
+        renderQuestions();
+    }
 }
 
 
@@ -75,10 +104,10 @@ var timerInterval = setInterval(function() {
     timeEl.innerHTML = secondsLeft;
     if (secondsLeft === 0) {
         clearInterval(timerInterval);
-        se
+        timeEl.innerHTML = 0;
         quizOver();
     } else {
-        startQuestions();
+        renderQuestions();
     }
 
 }, 1000);
