@@ -5,6 +5,7 @@ var title = document.querySelector("#title");
 // var yourScore = document.querySelector("#your-score");
 // var bestScore = document.querySelector("#best-score");
 var questionsContainer = document.querySelector("#questions-container")
+var index = 0;
 var questionArray = [
     {
         question: "How many days are in December?",
@@ -27,10 +28,6 @@ var questionArray = [
 
 var secondsLeft = 2;
 
-function lastPage() {
-    var highScore = document.querySelector()
-}
-
 
 function quizOver(){
 questionsContainer.hidden= true;
@@ -47,9 +44,6 @@ submit.addEventListener("submit", function(){
     lastPage();
 });
 
-// var yourScore = document.querySelector("your-score");
-// yourScore.textContent = //whatever variable i define that calculates the score
-
 }
 
 
@@ -58,36 +52,30 @@ function startQuestions() {
     title.hidden = true;
     questionsContainer.hidden = false;
 
-    // var questionTitle = document.querySelector("#question-title");
-    // var activeIndex = questionArray[0];
-    // questionTitle.textContent = activeIndex;
+for (var i = 0; i< questionArray.length; i++){
+        var questionTitle = document.querySelector("#question-title");
+        var question = questionArray[i];
+        questionTitle.innerHTML= question.question;
 
+        var ulEl = document.querySelector("#button");
+        var choices = questionArray[i];
+        ulEl.innerHTML = choices.choices;
+        
+        console.log(question);     
+        
+        checkAnswers()
 
-    // var choice = document.createElement("type", "button");
-    // choice.textContent = activeIndex;
-    // questionsContainer.appendChild("choice");
-    
-    // var choices = Object.entries(questionArray)
-    // Object.entries(questionArray).forEach
-    
-    for (var i = 0; i <questionArray.length; i++){
-        var choice = document.createElement('type', 'button');
-        choice.textContent = questionArray.choices
-        questionsContainer.appendChild(choice);
-        //need to add event listener?
-        // choices.textContent = activeQuestion.choices[i];
-        // activeIndex++
-        // console.log(questionArray.choices);
-    }
+}
 }
 
 
 function setTime() {
 var timerInterval = setInterval(function() {
     secondsLeft--;
-    timeEl.textContent = secondsLeft;
+    timeEl.innerHTML = secondsLeft;
     if (secondsLeft === 0) {
         clearInterval(timerInterval);
+        se
         quizOver();
     } else {
         startQuestions();
