@@ -1,0 +1,58 @@
+*{
+    margin: auto;
+    padding: 0;
+}
+
+body {
+    background-color: rgb(241, 99, 99);
+}
+
+
+h1 {
+    background-color: rgb(157, 212, 157);
+    border: 10px dotted rgb(214, 33, 33);
+    text-align: center;
+    padding: 100px;
+    color: white;
+    font-size: 60px;
+}
+
+#players {
+    /* margin-top: 5%; */
+    text-align: center;
+    background-color: white;
+    color: black;
+    margin-top: 80px;
+    width: 200px;
+    height: 100px;
+    font-size: 25px;
+    border: 50px solid white;
+
+}
+
+#btn {
+    background-color: rgb(157, 212, 157);
+    color: white;
+    margin-top: 50px;
+    margin-left: 225px;
+    padding-top: 20px;
+    width: 275px;
+    height: 100px;
+    font-size: 25px;
+    border: 10px dotted red;
+    text-align: center;
+}
+
+#clear-scores {
+    background-color: rgb(157, 212, 157);
+    color: white;
+    margin-top: 50px;
+    padding-top: 20px;
+    margin-left: 40px;
+    width: 275px;
+    height: 100px;
+    font-size: 25px;
+    border: 10px dotted red;
+    text-align: center;
+}
+

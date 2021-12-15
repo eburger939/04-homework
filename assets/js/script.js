@@ -4,9 +4,7 @@ var finalScore = document.querySelector("#final-score");
 var timeEl = document.querySelector("#time");
 var title = document.querySelector("#title");
 var yourScore = document.querySelector("#your-score");
-// var bestScore = document.querySelector("#best-score");
 var questionsContainer = document.querySelector("#questions-container");
-var critiqueEl = document.querySelector("#critique");
 var questionChoices = document.querySelector("#question-choices");
 var submitBtn = document.querySelector("#submit");
 
@@ -28,7 +26,7 @@ var questionArray = [
     answer: "nine",
   },
   {
-    question: "which of the following is not one of Santa's reindeer?",
+    question: "Which of the following is not one of Santa's reindeer?",
     choices: ["Dasher", "Dixen", "Comet", "Blitzen"],
     answer: "Dixen",
   },
@@ -47,6 +45,16 @@ function renderQuestions() {
   activeQuestion.choices.forEach(function (choice) {
     var choiceBtn = document.createElement("button");
     choiceBtn.setAttribute("value", choice);
+    choiceBtn.style.width = '400px';
+    choiceBtn.style.height = '50px';
+    choiceBtn.style.background = 'white';
+    choiceBtn.style.color = 'red';
+    choiceBtn.style.fontSize = '15px';
+    choiceBtn.style.display = 'block';
+    choiceBtn.style.marginTop = '20px';
+  
+    
+    
 
     choiceBtn.textContent = choice;
     questionChoices.appendChild(choiceBtn);
